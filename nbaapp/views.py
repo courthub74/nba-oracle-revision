@@ -20,7 +20,15 @@ def atl(request):
     atlreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Atlanta%20Hawks")
     atl_info = json.loads(atlreq.content)
 
-    return render(request, "teams/atlanta.html", {'atl_info': atl_info})
+    # ATLANTA Last Game 134880
+    atllast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134880")
+    atl_last = json.loads(atllast.content)
+
+    # ATLANTA Next Game 134880
+    atlnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134880")
+    atl_next = json.loads(atlnext.content)
+
+    return render(request, "teams/atlanta.html", {'atl_info': atl_info, 'atl_last': atl_last, 'atl_next': atl_next})
 
 
 #BOSTON CELTICS
@@ -32,7 +40,15 @@ def bos(request):
     bosreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Boston%20Celtics")
     bos_info = json.loads(bosreq.content)
 
-    return render(request, "teams/boston.html", {'bos_info': bos_info})
+    #BOSTON Last Game 134860
+    boslast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134860")
+    bos_last = json.loads(boslast.content)
+
+    #BOSTON Next Game 134860
+    bosnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134860")
+    bos_next = json.loads(bosnext.content)
+
+    return render(request, "teams/boston.html", {'bos_info': bos_info, 'bos_last': bos_last, 'bos_next': bos_next})
 
 
 

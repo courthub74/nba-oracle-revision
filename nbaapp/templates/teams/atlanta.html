@@ -14,16 +14,20 @@
     <!-- Year Formed -->
     <div class="center">
         <div class="card border-primary" style="max-width: 70rem;">
-            <div class="card-header text-dark">Year Formed:</div>
-            <p class="card-text big"></p>
+            {% for year in atl_info.teams %}
+                <div class="card-header text-dark">Year Formed:</div>
+                <p class="card-text big">{{year.intFormedYear}}</p>
+            {% endfor %}
         </div>
     </div>
 
     <!--Team Stadium-->
     <div class="center">
         <div class="card border-primary" style="max-width: 70rem;">
+            {% for team in atl_info.teams %}
             <div class="card-header text-dark">Team Stadium:</div>
-            <p class="card-text big"></p>
+            <p class="card-text big">{{ team.strStadium }}</p>
+            {% endfor %}
         </div>
     </div>
 

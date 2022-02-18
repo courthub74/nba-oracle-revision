@@ -50,6 +50,26 @@ def bos(request):
 
     return render(request, "teams/boston.html", {'bos_info': bos_info, 'bos_last': bos_last, 'bos_next': bos_next})
 
+#BROOKLYN NETS
+def bklyn(request):
+    import requests
+    import json
+
+    # NETS General Info 134861
+    bklynreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Brooklyn%20Nets")
+    bklyn_info = json.loads(bklynreq.content)
+
+    # NETS Last Game 134861
+    bklynlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134861")
+    bklyn_last = json.loads(bklynlast.content)
+
+    # NETS Next Game 134861
+    bklynnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134861")
+    bklyn_next = json.loads(bklynnext.content)
+
+
+    return render(request, "teams/brooklyn.html", {'bklyn_info':bklyn_info, 'bklyn_last': bklyn_last, 'bklyn_next': bklyn_next})
+
 
 
 

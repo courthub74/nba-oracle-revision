@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('atlanta/', views.atl, name='atl'),
     path('boston/', views.bos, name='bos'),
+    path('brooklyn/', views.bklyn, name='bklyn'),
 ]

@@ -7,55 +7,56 @@
     <br>
 
     {% load static %}
-    <center><img src="{% static 'images/hawks.png' %}" alt="hawks" width="400" height="250"></center>
+    <center><img src="{% static 'images/eastern/hawks.png' %}" alt="hawks" width="400" height="250"></center>
 
     <br>
 
     <!-- Year Formed -->
     <div class="center">
-        <div class="card border-primary" style="max-width: 70rem;">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             {% for year in atl_info.teams %}
                 <div class="card-header text-dark">Year Formed:</div>
                 <p class="card-text big">{{year.intFormedYear}}</p>
             {% endfor %}
-        </div>
+        <!-- </div> -->
     </div>
 
     <!--Team Stadium-->
     <div class="center">
-        <div class="card border-primary" style="max-width: 70rem;">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             {% for team in atl_info.teams %}
             <div class="card-header text-dark">Team Stadium:</div>
             <p class="card-text big">{{ team.strStadium }}</p>
             {% endfor %}
-        </div>
+        <!-- </div> -->
     </div>
 
     <!--Last 5 Games Played-->
     <div class="center">
-        <div class="card border-primary" style="max-width: 70rem;">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             <div class="card-header text-dark">Last 5 Games Played:</div>
-            <p class="card-text big">
-                <h5>Next Game(s):</h5>
+                <div class="card-body text-dark">
+                    {% for score in atl_last.results %}
+                    <h5 class="card-title">{{score.dateEventLocal}}</h5>
+                    <p class="card-text scores">@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</p>
+                    {% endfor %}
+                    
+                    
+                </div>
+            <div class="center">
+                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+                    <div class="card-header text-dark">Next Game(s):</div>
+                        <div class="card-body text-dark">
+                            {% for score in atl_last.results %}
+                                <p class="card-title scores">{{score.strEventAlternate}}</p>
+                            {% endfor %}
+                        </div>
+                <!-- </div> -->
+            </div>
             </p>
         </div>
     </div>
 
 </div>
-
-    <!-- <div>
-        <h3>General Info</h3>
-        {{ atl_info }}
-    </div>
-
-    <div>
-        <h3>Past Info</h3>
-        {{ atl_last }}
-    </div>
-
-    <div>
-        <h3>Next Info</h3>
-        {{ atl_next }}
-    </div> -->
 
 {% endblock %}

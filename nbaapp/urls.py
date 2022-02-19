@@ -10,4 +10,5 @@ urlpatterns = [
     path('chicago/', views.chi, name='chi'),
     path('cleveland/', views.cle, name='cle'),
     path('detroit/', views.det, name='det'),
+    path('indiana/', views.ind, name='ind'),
 ]

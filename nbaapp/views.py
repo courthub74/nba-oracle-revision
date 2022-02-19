@@ -34,7 +34,7 @@ def atl(request):
     atlnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134880")
     atl_next = json.loads(atlnext.content)
 
-    return render(request, "teams/atlanta.html", {'atl_info': atl_info, 'atl_last': atl_last, 'atl_next': atl_next})
+    return render(request, "teams/eastern/atlanta.html", {'atl_info': atl_info, 'atl_last': atl_last, 'atl_next': atl_next})
 
 
 #BOSTON CELTICS
@@ -54,7 +54,7 @@ def bos(request):
     bosnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134860")
     bos_next = json.loads(bosnext.content)
 
-    return render(request, "teams/boston.html", {'bos_info': bos_info, 'bos_last': bos_last, 'bos_next': bos_next})
+    return render(request, "teams/eastern/boston.html", {'bos_info': bos_info, 'bos_last': bos_last, 'bos_next': bos_next})
 
 
 #BROOKLYN NETS
@@ -75,7 +75,7 @@ def bklyn(request):
     bklyn_next = json.loads(bklynnext.content)
 
 
-    return render(request, "teams/brooklyn.html", {'bklyn_info':bklyn_info, 'bklyn_last': bklyn_last, 'bklyn_next': bklyn_next})
+    return render(request, "teams/eastern/brooklyn.html", {'bklyn_info':bklyn_info, 'bklyn_last': bklyn_last, 'bklyn_next': bklyn_next})
 
 
 #CHARLOTTE HORNETS
@@ -95,7 +95,7 @@ def char(request):
     charnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134881")
     char_next = json.loads(charnext.content)
 
-    return render(request, "teams/charlotte.html", {'char_info': char_info, 'char_last': char_last, 'char_next': char_next})
+    return render(request, "teams/eastern/charlotte.html", {'char_info': char_info, 'char_last': char_last, 'char_next': char_next})
 
 
 #CHICAGO BULLS
@@ -115,7 +115,7 @@ def chi(request):
     chinext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134870")
     chi_next = json.loads(chinext.content)
 
-    return render(request, "teams/chicago.html", {'chi_info': chi_info, 'chi_last': chi_last, 'chi_next': chi_next})
+    return render(request, "teams/eastern/chicago.html", {'chi_info': chi_info, 'chi_last': chi_last, 'chi_next': chi_next})
 
 
 #CLEVELAND CAVALIERS
@@ -135,7 +135,7 @@ def cle(request):
     clenext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134871")
     cle_next = json.loads(clenext.content)
 
-    return render(request, "teams/cleveland.html", {'cle_info': cle_info, 'cle_last': cle_last, 'cle_next': cle_next})
+    return render(request, "teams/eastern/cleveland.html", {'cle_info': cle_info, 'cle_last': cle_last, 'cle_next': cle_next})
 
 
 #DETROIT PISTONS
@@ -153,8 +153,26 @@ def det(request):
     detnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134872")
     det_next = json.loads(detnext.content)
 
-    return render(request, "teams/detroit.html", {'det_info': det_info, 'det_last': det_last, 'det_next': det_next})
+    return render(request, "teams/eastern/detroit.html", {'det_info': det_info, 'det_last': det_last, 'det_next': det_next})
 
-   
+#INDIANA PACERS
+def ind(request):
+    import requests
+    import json
+
+    # PACERS General Info 134873
+    indreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Indiana%20Pacers")
+    ind_info = json.loads(indreq.content)
+
+    # PACERS Last Game Info
+    indlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134873")
+    ind_last = json.loads(indlast.content)
+    # PACERS Next Game Info
+    indnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134873")
+    ind_next = json.loads(indnext.content)
+
+    return render(request, "teams/eastern/indiana.html", {'ind_info': ind_info, 'ind_last': ind_last, 'ind_next': ind_next})
+
+
 
     

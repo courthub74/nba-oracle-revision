@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <br>
+
+    {% load static %}
+    <center><img src="{% static 'images/eastern/celtics.png' %}" alt="hawks" width="310" height="270"></center>
+
+    <br>
+
+    <!-- Year Formed -->
+    <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            {% for year in bos_info.teams %}
+            <div class="card-header text-dark">Year Formed:</div>
+            <p class="card-text big">{{year.intFormedYear}}</p>
+            {% endfor %}
+        <!-- </div> -->
+    </div>
+
+    <!--Team Stadium-->
+    <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            {% for team in bos_info.teams %}
+            <div class="card-header text-dark">Team Stadium:</div>
+            <p class="card-text big">{{team.strStadium}}</p>
+            {% endfor %}
+        <!-- </div> -->
+    </div>
+
+     <!--Last 5 Games Played-->
+     <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            <div class="card-header text-dark">Last 5 Games Played:</div>
+                <div class="card-body text-dark">
+                    {% for score in bos_last.results %}
+                    <h5 class="card-title">{{score.dateEventLocal}}</h5>
+                    <p class="card-text scores">@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</p>
+                    {% endfor %}
+                    
+                    
+                </div>
+            <div class="center">
+                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+                    <div class="card-header text-dark">Next Game(s):</div>
+                        <div class="card-body text-dark">
+                            {% for score in bos_next.events %}
+                                <p class="card-title scores">{{score.strEventAlternate}}</p>
+                            {% endfor %}
+                        </div>
+                <!-- </div> -->
+            </div>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -173,6 +173,25 @@ def ind(request):
 
     return render(request, "teams/eastern/indiana.html", {'ind_info': ind_info, 'ind_last': ind_last, 'ind_next': ind_next})
 
+#MIAMI HEAT
+def mia(request):
+    import requests
+    import json
+
+    # HEAT General Info 134882
+    miareq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Miami_Heat")
+    mia_info = json.loads(miareq.content)
+
+    # Last Game Info HEAT 134882
+    mialast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134882")
+    mia_last = json.loads(mialast.content)
+
+    # Next Game Info HEAT 134882
+    mianext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134882")
+    mia_next = json.loads(mianext.content)
+
+    return render(request, "teams/eastern/miami.html", {'mia_info': mia_info, 'mia_last': mia_last, 'mia_next': mia_next})
+
 
 
     

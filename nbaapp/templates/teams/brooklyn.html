@@ -7,7 +7,7 @@
     <br>
 
     {% load static %}
-    <center><img src="{% static 'images/eastern/nets.png' %}" alt="hawks" width="300" height="250"></center>
+    <center><img src="{% static 'images/eastern/nets.png' %}" alt="hawks" width="280" height="250"></center>
 
     <br>
 
@@ -47,7 +47,7 @@
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
                     <div class="card-header text-dark">Next Game(s):</div>
                         <div class="card-body text-dark">
-                            {% for score in bklyn_last.results %}
+                            {% for score in bklyn_next.events %}
                                 <p class="card-title scores">{{score.strEventAlternate}}</p>
                             {% endfor %}
                         </div>

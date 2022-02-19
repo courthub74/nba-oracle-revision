@@ -11,6 +11,12 @@ def home(request):
 
 #TEAMS (API Request)
 
+###################################################################################
+
+#EASTERN CONFERENCE
+
+###################################################################################
+
 #ATLANTA HAWKS
 def atl(request):
     import requests
@@ -50,6 +56,7 @@ def bos(request):
 
     return render(request, "teams/boston.html", {'bos_info': bos_info, 'bos_last': bos_last, 'bos_next': bos_next})
 
+
 #BROOKLYN NETS
 def bklyn(request):
     import requests
@@ -71,9 +78,83 @@ def bklyn(request):
     return render(request, "teams/brooklyn.html", {'bklyn_info':bklyn_info, 'bklyn_last': bklyn_last, 'bklyn_next': bklyn_next})
 
 
+#CHARLOTTE HORNETS
+def char(request):
+    import requests 
+    import json 
+
+    # HORNETS General Info 134881
+    charreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Charlotte%20Hornets")
+    char_info = json.loads(charreq.content)
+
+    # HORNETS Last Game Info 134881
+    charlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134881")
+    char_last = json.loads(charlast.content)
+
+    # HORNETS Next Game Info 134881
+    charnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134881")
+    char_next = json.loads(charnext.content)
+
+    return render(request, "teams/charlotte.html", {'char_info': char_info, 'char_last': char_last, 'char_next': char_next})
 
 
+#CHICAGO BULLS
+def chi(request):
+    import requests
+    import json 
+
+    # BULLS General Info 134870
+    chireq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Chicago%20Bulls")
+    chi_info = json.loads(chireq.content)
+
+    # BULLS Last Game Info 134870
+    chilast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134870")
+    chi_last = json.loads(chilast.content)
+
+    # BULLS Next Game Info 134870
+    chinext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134870")
+    chi_next = json.loads(chinext.content)
+
+    return render(request, "teams/chicago.html", {'chi_info': chi_info, 'chi_last': chi_last, 'chi_next': chi_next})
 
 
+#CLEVELAND CAVALIERS
+def cle(request):
+    import requests
+    import json 
+
+    # CAVALIERS General Info 134871
+    clereq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Cleveland%20Cavaliers")
+    cle_info = json.loads(clereq.content)
+
+    # CAVALIERS Last Game 134871
+    clelast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134871")
+    cle_last = json.loads(clelast.content)
+
+    # CAVALIERS Next Game 134871
+    clenext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134871")
+    cle_next = json.loads(clenext.content)
+
+    return render(request, "teams/cleveland.html", {'cle_info': cle_info, 'cle_last': cle_last, 'cle_next': cle_next})
 
 
+#DETROIT PISTONS
+def det(request):
+    import requests
+    import json 
+
+    # PISTONS General Info 134872
+    detreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Detroit%20Pistons")
+    det_info = json.loads(detreq.content)
+    # PISTONS Last Game 134872
+    detlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134872")
+    det_last = json.loads(detlast.content)
+    # PISTONS Next Game 134872
+    detnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134872")
+    det_next = json.loads(detnext.content)
+
+    return render(request, "teams/detroit.html", {'det_info': det_info, 'det_last': det_last, 'det_next': det_next})
+
+   
+
+    

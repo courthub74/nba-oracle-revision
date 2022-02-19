@@ -47,7 +47,7 @@
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
                     <div class="card-header text-dark">Next Game(s):</div>
                         <div class="card-body text-dark">
-                            {% for score in bos_last.results %}
+                            {% for score in bos_next.events %}
                                 <p class="card-title scores">{{score.strEventAlternate}}</p>
                             {% endfor %}
                         </div>

@@ -193,5 +193,85 @@ def mia(request):
     return render(request, "teams/eastern/miami.html", {'mia_info': mia_info, 'mia_last': mia_last, 'mia_next': mia_next})
 
 
+#MILWAUKEE BUCKS
+def mil(request):
+    import requests
+    import json
+
+    # HEAT General Info 134882
+    milreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Milwaukee_Bucks")
+    mil_info = json.loads(milreq.content)
+
+    # Last Game Info HEAT 134882
+    millast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134874")
+    mil_last = json.loads(millast.content)
+
+    # Next Game Info HEAT 134882
+    milnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134874")
+    mil_next = json.loads(milnext.content)
+
+    return render(request, "teams/eastern/milwaukee.html", {'mil_info': mil_info, 'mil_last': mil_last, 'mil_next': mil_next})
+
+
+#NEW YORK KNICKS
+def nyc(request):
+    import requests
+    import json
+
+    # KNICKS General Info 134862
+    nycreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=new_york_knicks")
+    nyc_info = json.loads(nycreq.content)
+
+    # KNICKS Last Game 134862
+    nyclast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134862")
+    nyc_last = json.loads(nyclast.content)
+
+    # KNICKS Next Game 134862
+    nycnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134862")
+    nyc_next = json.loads(nycnext.content)
+
+    return render(request, "teams/eastern/newyork.html", {'nyc_info': nyc_info, 'nyc_last': nyc_last, 'nyc_next': nyc_next})
+
+
+#ORLANDO MAGIC
+def orl(request):
+    import requests
+    import json
+
+    # KNICKS General Info 134862
+    orlreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Orlando_Magic")
+    orl_info = json.loads(orlreq.content)
+
+    # KNICKS Last Game 134862
+    orllast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134883")
+    orl_last = json.loads(orllast.content)
+
+    # KNICKS Next Game 134862
+    orlnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134883")
+    orl_next = json.loads(orlnext.content)
+
+    return render(request, "teams/eastern/orlando.html", {'orl_info': orl_info, 'orl_last': orl_last, 'orl_next': orl_next})
+
+
+#ORLANDO MAGIC
+def phi(request):
+    import requests
+    import json
+
+    #SIXERS General Info 134863
+    phireq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=philadelphia_76ers")
+    phi_info = json.loads(phireq.content)
+
+    #SIXERS Last Game 134863
+    philast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134863")
+    phi_last = json.loads(philast.content)
+
+    #SIXERS Next Game 134863
+    phinext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134863")
+    phi_next = json.loads(phinext.content)
+
+    return render(request, "teams/eastern/philadelphia.html", {'phi_info': phi_info, 'phi_last': phi_last, 'phi_next': phi_next})
+
+
 
     

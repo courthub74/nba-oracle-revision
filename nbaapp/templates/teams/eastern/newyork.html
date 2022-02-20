@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+
+    <br>
+
+    {% load static %}
+    <center><img src="{% static 'images/eastern/knicks.png' %}" alt="hawks" width="380" height="300"></center>
+
+    <br>
+
+    <!-- Team Name -->
+    <div class="center">
+        {% for team in nyc_info.teams%}
+        <div class="card-header text-dark">Team Name:</div>
+        <p class="card-text big"><h4>{{team.strTeam}}</h4></p>
+        {% endfor %}
+    </div>
+
+    <!-- Year Formed -->
+    <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            {% for year in nyc_info.teams %}
+            <div class="card-header text-dark">Year Formed:</div>
+            <p class="card-text big"><h4>{{year.intFormedYear}}</h4></p>
+            {% endfor %}
+        <!-- </div> -->
+    </div>
+
+    <!--Team Stadium-->
+    <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            {% for team in nyc_info.teams %}
+            <div class="card-header text-dark">Team Stadium:</div>
+            <p class="card-text big"><h4>{{team.strStadium}}</h4></p>
+            {% endfor %}
+        <!-- </div> -->
+    </div>
+
+     <!--Last 5 Games Played-->
+     <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            <div class="card-header text-dark">Last 5 Games Played:</div>
+                <div class="card-body text-dark">
+                    {% for score in nyc_last.results %}
+                    <h5 class="card-header">{{score.dateEventLocal}}</h5>
+                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
+                    <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                    {% endfor %}
+                    
+                    
+                </div>
+            <div class="center">
+                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+                    <div class="card-header text-dark">Next Game(s):</div>
+                        <div class="card-body text-dark">
+                            {% for score in nyc_next.events %}
+                                <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
+                            {% endfor %}
+                        </div>
+                <!-- </div> -->
+            </div>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

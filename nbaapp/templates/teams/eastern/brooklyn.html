@@ -46,7 +46,8 @@
                 <div class="card-body text-dark">
                     {% for score in bklyn_last.results %}
                     <h5 class="card-title">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
+                    <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
                     {% endfor %}
                     
                     

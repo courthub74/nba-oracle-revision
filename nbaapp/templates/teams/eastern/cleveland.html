@@ -45,8 +45,9 @@
             <div class="card-header text-dark">Last 5 Games Played:</div>
                 <div class="card-body text-dark">
                     {% for score in cle_last.results %}
-                    <h5 class="card-title">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                    <h5 class="card-header">{{score.dateEventLocal}}</h5>
+                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
+                    <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
                     {% endfor %}
                     
                     

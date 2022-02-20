@@ -253,7 +253,7 @@ def orl(request):
     return render(request, "teams/eastern/orlando.html", {'orl_info': orl_info, 'orl_last': orl_last, 'orl_next': orl_next})
 
 
-#ORLANDO MAGIC
+#PHILADELPHIA 76ERS
 def phi(request):
     import requests
     import json
@@ -271,6 +271,47 @@ def phi(request):
     phi_next = json.loads(phinext.content)
 
     return render(request, "teams/eastern/philadelphia.html", {'phi_info': phi_info, 'phi_last': phi_last, 'phi_next': phi_next})
+
+
+#TORONTO RAPTORS
+def tor(request):
+    import requests
+    import json
+
+    #SIXERS General Info 134863
+    torreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Toronto_Raptors")
+    tor_info = json.loads(torreq.content)
+
+    #SIXERS Last Game 134863
+    torlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134864")
+    tor_last = json.loads(torlast.content)
+
+    #SIXERS Next Game 134863
+    tornext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134864")
+    tor_next = json.loads(tornext.content)
+
+    return render(request, "teams/eastern/toronto.html", {'tor_info': tor_info, 'tor_last': tor_last, 'tor_next': tor_next})
+
+
+#WASHINGTON WIZARDS
+def was(request):
+    import requests
+    import json
+
+    #SIXERS General Info 134863
+    wasreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Washington_Wizards")
+    was_info = json.loads(wasreq.content)
+
+    #SIXERS Last Game 134863
+    waslast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134884")
+    was_last = json.loads(waslast.content)
+
+    #SIXERS Next Game 134863
+    wasnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134884")
+    was_next = json.loads(wasnext.content)
+
+    return render(request, "teams/eastern/washington.html", {'was_info': was_info, 'was_last': was_last, 'was_next': was_next})
+
 
 
 

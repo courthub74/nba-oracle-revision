@@ -11,12 +11,20 @@
 
     <br>
 
+    <!-- Team Name -->
+    <div class="center">
+        {% for team in bos_info.teams%}
+        <div class="card-header text-dark">Team Name:</div>
+        <p class="card-text big"><h4>{{team.strTeam}}</h4></p>
+        {% endfor %}
+    </div>
+
     <!-- Year Formed -->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             {% for year in bos_info.teams %}
             <div class="card-header text-dark">Year Formed:</div>
-            <p class="card-text big">{{year.intFormedYear}}</p>
+            <p class="card-text big"><h4>{{year.intFormedYear}}</h4></p>
             {% endfor %}
         <!-- </div> -->
     </div>
@@ -26,7 +34,7 @@
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             {% for team in bos_info.teams %}
             <div class="card-header text-dark">Team Stadium:</div>
-            <p class="card-text big">{{team.strStadium}}</p>
+            <p class="card-text big"><h4>{{team.strStadium}}</h4></p>
             {% endfor %}
         <!-- </div> -->
     </div>
@@ -38,7 +46,7 @@
                 <div class="card-body text-dark">
                     {% for score in bos_last.results %}
                     <h5 class="card-title">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores">@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</p>
+                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}} vs. {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
                     {% endfor %}
                     
                     
@@ -48,7 +56,7 @@
                     <div class="card-header text-dark">Next Game(s):</div>
                         <div class="card-body text-dark">
                             {% for score in bos_next.events %}
-                                <p class="card-title scores">{{score.strEventAlternate}}</p>
+                                <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
                             {% endfor %}
                         </div>
                 <!-- </div> -->

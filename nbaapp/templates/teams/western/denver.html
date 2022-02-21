@@ -7,35 +7,37 @@
     <br>
 
     {% load static %}
-    <center><img src="{% static 'images/eastern/sixers.png' %}" alt="sixers" width="320" height="280"></center>
+    <center><img src="{% static 'images/western/nuggets.png' %}" alt="nuggets" width="255" height="250"></center>
 
     <br>
 
-    <!-- Team Name -->
-    <div class="center">
-        {% for team in phi_info.teams%}
+     <!-- Team Name -->
+     <!--This one needs to be entered manually as for the json in api has two different years-->
+     <!--One of the years needs to be cleaned out, I have contacted the admin-->
+     <div class="center">
+        
         <div class="card-header text-dark">Team Name:</div>
-        <p class="card-text big"><h4>{{team.strTeam}}</h4></p>
-        {% endfor %}
+        <p class="card-text big"><h4>Denver Nuggets</h4></p>
+        
     </div>
 
     <!-- Year Formed -->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            {% for year in phi_info.teams %}
+            
             <div class="card-header text-dark">Year Formed:</div>
-            <p class="card-text big"><h4>{{year.intFormedYear}}</h4></p>
-            {% endfor %}
+            <p class="card-text big"><h4>1967</h4></p>
+            
         <!-- </div> -->
     </div>
 
     <!--Team Stadium-->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            {% for team in phi_info.teams %}
+            
             <div class="card-header text-dark">Team Stadium:</div>
-            <p class="card-text big"><h4>{{team.strStadium}}</h4></p>
-            {% endfor %}
+            <p class="card-text big"><h4>Pepsi Center</h4></p>
+            
         <!-- </div> -->
     </div>
 
@@ -44,7 +46,7 @@
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             <div class="card-header text-dark">Last 5 Games Played:</div>
                 <div class="card-body text-dark">
-                    {% for score in phi_last.results %}
+                    {% for score in den_last.results %}
                     <h5 class="card-header">{{score.dateEventLocal}}</h5>
                     <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
                     <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
@@ -56,7 +58,7 @@
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
                     <div class="card-header text-dark">Next Game(s):</div>
                         <div class="card-body text-dark">
-                            {% for score in phi_next.events %}
+                            {% for score in den_next.events %}
                                 <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
                             {% endfor %}
                         </div>

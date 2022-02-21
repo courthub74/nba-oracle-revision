@@ -7,13 +7,13 @@
     <br>
 
     {% load static %}
-    <center><img src="{% static 'images/eastern/sixers.png' %}" alt="sixers" width="320" height="280"></center>
+    <center><img src="{% static 'images/western/mavericks.png' %}" alt="mavs" width="265" height="250"></center>
 
     <br>
 
-    <!-- Team Name -->
-    <div class="center">
-        {% for team in phi_info.teams%}
+     <!-- Team Name -->
+     <div class="center">
+        {% for team in dal_info.teams%}
         <div class="card-header text-dark">Team Name:</div>
         <p class="card-text big"><h4>{{team.strTeam}}</h4></p>
         {% endfor %}
@@ -22,7 +22,7 @@
     <!-- Year Formed -->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            {% for year in phi_info.teams %}
+            {% for year in dal_info.teams %}
             <div class="card-header text-dark">Year Formed:</div>
             <p class="card-text big"><h4>{{year.intFormedYear}}</h4></p>
             {% endfor %}
@@ -32,7 +32,7 @@
     <!--Team Stadium-->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            {% for team in phi_info.teams %}
+            {% for team in dal_info.teams %}
             <div class="card-header text-dark">Team Stadium:</div>
             <p class="card-text big"><h4>{{team.strStadium}}</h4></p>
             {% endfor %}
@@ -44,7 +44,7 @@
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             <div class="card-header text-dark">Last 5 Games Played:</div>
                 <div class="card-body text-dark">
-                    {% for score in phi_last.results %}
+                    {% for score in dal_last.results %}
                     <h5 class="card-header">{{score.dateEventLocal}}</h5>
                     <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
                     <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
@@ -56,7 +56,7 @@
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
                     <div class="card-header text-dark">Next Game(s):</div>
                         <div class="card-body text-dark">
-                            {% for score in phi_next.events %}
+                            {% for score in dal_next.events %}
                                 <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
                             {% endfor %}
                         </div>

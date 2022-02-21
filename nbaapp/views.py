@@ -278,15 +278,15 @@ def tor(request):
     import requests
     import json
 
-    #SIXERS General Info 134863
+    # RAPTORS General Info 134864
     torreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Toronto_Raptors")
     tor_info = json.loads(torreq.content)
 
-    #SIXERS Last Game 134863
+    # RAPTORS Last Game 134864
     torlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134864")
     tor_last = json.loads(torlast.content)
 
-    #SIXERS Next Game 134863
+    # RAPTORS Next Game 134864
     tornext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134864")
     tor_next = json.loads(tornext.content)
 
@@ -298,21 +298,63 @@ def was(request):
     import requests
     import json
 
-    #SIXERS General Info 134863
+    # WIZARDS General Info 134884
     wasreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Washington_Wizards")
     was_info = json.loads(wasreq.content)
 
-    #SIXERS Last Game 134863
+    # WIZARDS Last Game 134884
     waslast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134884")
     was_last = json.loads(waslast.content)
 
-    #SIXERS Next Game 134863
+    # WIZARDS Next Game 134884
     wasnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134884")
     was_next = json.loads(wasnext.content)
 
     return render(request, "teams/eastern/washington.html", {'was_info': was_info, 'was_last': was_last, 'was_next': was_next})
 
 
+###################################################################################
+
+#WESTERN CONFERENCE
+
+###################################################################################
+
+#DALLAS MAVERICKS
+def dal(request):
+    import requests
+    import json 
+
+    # MAVERICKS General Info 134875
+    dalreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Dallas%20Mavericks")
+    dal_info = json.loads(dalreq.content)
+
+    # MAVERICKS Last Game 134875
+    dallast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134875")
+    dal_last = json.loads(dallast.content)
+
+    # MAVERICKS Next Game 134875
+    dalnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134875")
+    dal_next = json.loads(dalnext.content)
+
+    return render(request, "teams/western/dallas.html", {'dal_info': dal_info, 'dal_last': dal_last, 'dal_next': dal_next})
 
 
+#DENVER NUGGETS
+def den(request):
+    import requests
+    import json 
+
+    # NUGGETS General Info 134885
+    denreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Denver_Nuggets")
+    den_info = json.loads(denreq.content)
+
+    # NUGGETS Last Game 134885
+    denlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134885")
+    den_last = json.loads(denlast.content)
+    
+    # NUGGETS Next Game 134885
+    dennext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134885")
+    den_next = json.loads(dennext.content)
+
+    return render(request, "teams/western/denver.html", {'den_info': den_info, 'den_last': den_last, 'den_next': den_next})
     

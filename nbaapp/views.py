@@ -357,4 +357,24 @@ def den(request):
     den_next = json.loads(dennext.content)
 
     return render(request, "teams/western/denver.html", {'den_info': den_info, 'den_last': den_last, 'den_next': den_next})
+
+
+#GOLDEN STATE WARRIORS
+def gsw(request):
+    import requests
+    import json 
+
+    # NUGGETS General Info 134885
+    gswreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Golden%20State%20Warriors")
+    gsw_info = json.loads(gswreq.content)
+
+    # NUGGETS Last Game 134885
+    gswlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134865")
+    gsw_last = json.loads(gswlast.content)
+
+    # NUGGETS Next Game 134885
+    gswnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134865")
+    gsw_next = json.loads(gswnext.content)
+
+    return render(request, "teams/western/goldenstate.html", {'gsw_info': gsw_info, 'gsw_last': gsw_last, 'gsw_next': gsw_next})
     

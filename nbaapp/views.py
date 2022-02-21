@@ -377,4 +377,66 @@ def gsw(request):
     gsw_next = json.loads(gswnext.content)
 
     return render(request, "teams/western/goldenstate.html", {'gsw_info': gsw_info, 'gsw_last': gsw_last, 'gsw_next': gsw_next})
-    
+
+
+#GOLDEN STATE WARRIORS
+def gsw(request):
+    import requests
+    import json 
+
+    # WARRIORS General Info 134865
+    gswreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Golden%20State%20Warriors")
+    gsw_info = json.loads(gswreq.content)
+
+    # WARRIORS Last Game 134865
+    gswlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134865")
+    gsw_last = json.loads(gswlast.content)
+
+    # WARRIORS Next Game 134865
+    gswnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134865")
+    gsw_next = json.loads(gswnext.content)
+
+    return render(request, "teams/western/goldenstate.html", {'gsw_info': gsw_info, 'gsw_last': gsw_last, 'gsw_next': gsw_next})
+
+
+#HOUSTON ROCKETS
+def hou(request):
+    import requests
+    import json 
+
+    # ROCKETS General Info 134876
+    houreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Houston%20Rockets")
+    hou_info = json.loads(houreq.content)
+
+    # ROCKETS Last Game 134876
+    houlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134876")
+    hou_last = json.loads(houlast.content)
+
+    # ROCKETS Next Game 134876
+    hounext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134876")
+    hou_next = json.loads(hounext.content)
+
+    return render(request, "teams/western/houston.html", {'hou_info': hou_info, 'hou_last': hou_last, 'hou_next': hou_next})
+
+
+#LOS ANGELES CLIPPERS
+def lac(request):
+    import requests
+    import json 
+
+    # CLIPPERS General Info 134866
+    lacreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Los%20Angeles%20Clippers")
+    lac_info = json.loads(lacreq.content)
+
+    # CLIPPERS last game info 134866
+    laclast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134866")
+    lac_last = json.loads(laclast.content)
+
+    # CLIPPERS next game info 134866
+    lacnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134866")
+    lac_next = json.loads(lacnext.content)
+
+    return render(request, "teams/western/laclippers.html", {'lac_info': lac_info, 'lac_last': lac_last, 'lac_next': lac_next})
+
+
+

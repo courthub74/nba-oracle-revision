@@ -37,3 +37,8 @@ body {
 .black {
     color: black;
 }
+
+.prim{
+  background-color: rgb(129, 131, 139);
+  opacity: 5;
+}

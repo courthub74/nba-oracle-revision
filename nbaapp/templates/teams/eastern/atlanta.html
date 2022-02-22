@@ -11,50 +11,67 @@
 
     <br>
 
+    <!-- Demo Card for Design -->
+    <!-- <div class="center">
+        <h5 class="card-header prim">Card title</h5>
+        <div class="card-header prim">
+          This is a demo card 
+        </div>
+      </div> -->
+
+      <br>
+
     <!-- Team Name -->
     <div class="center">
         {% for team in atl_info.teams%}
-        <div class="card-header text-dark">Team Name:</div>
-        <p class="card-text big"><h4>{{team.strTeam}}</h4></p>
+        <h4 class="card-header"><b>Team Name:</b></h4>
+        <h5 class="card-header card-text">{{team.strTeam}}</h5>
         {% endfor %}
     </div>
+
+    <br>
 
     <!-- Year Formed -->
     <div class="center">
         <!-- <div class="card border-dark" style="max-width: 70rem;"> -->
             {% for year in atl_info.teams %}
-                <div class="card-header text-dark">Year Formed:</div>
-                <p class="card-text big"><h4>{{year.intFormedYear}}</h4></p>
+                <h4 class="card-header"><b>Year Formed:</b></h4>
+                <h5 class="card-header card-text">{{year.intFormedYear}}</h5>
             {% endfor %}
         <!-- </div> -->
     </div>
+
+    <br>
 
     <!--Team Stadium-->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
             {% for team in atl_info.teams %}
-            <div class="card-header text-dark">Team Stadium:</div>
-            <p class="card-text big"><h4>{{ team.strStadium }}</h4></p>
+            <h4 class="card-header"><b>Team Stadium:</b></h4>
+            <h5 class="card-header card-text">{{ team.strStadium }}</h5>
             {% endfor %}
         <!-- </div> -->
     </div>
 
+    <br>
+
     <!--Last 5 Games Played-->
     <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            <div class="card-header text-dark">Last 5 Games Played:</div>
+            <h4 class="card-header text-dark"><b>Last 5 Games Played:</b></h4>
                 <div class="card-body text-dark">
                     {% for score in atl_last.results %}
                     <h5 class="card-header">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
-                    <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                    <p class="card-text scores">
+                        <b>@{{score.strHomeTeam}} {{score.intHomeScore}} <br>
+                        {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
                     {% endfor %}
                     
                     
                 </div>
             <div class="center">
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-                    <div class="card-header text-dark">Next Game(s):</div>
+                    <h4 class="card-header text-dark"><b>Next Game(s):</b></h4>
                         <div class="card-body text-dark">
                             {% for score in atl_next.events %}
                                 <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>

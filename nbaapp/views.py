@@ -439,4 +439,84 @@ def lac(request):
     return render(request, "teams/western/laclippers.html", {'lac_info': lac_info, 'lac_last': lac_last, 'lac_next': lac_next})
 
 
+#LOS ANGELES LAKERS
+def lal(request):
+    import requests
+    import json 
+
+    # LAKERS General Info 134867
+    lalreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Los_Angeles_Lakers")
+    lal_info = json.loads(lalreq.content)
+
+    # LAKERS last game info 134867
+    lallast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134867")
+    lal_last = json.loads(lallast.content)
+
+    # LAKERS next game info 134867
+    lalnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134867")
+    lal_next = json.loads(lalnext.content)
+
+    return render(request, "teams/western/lalakers.html", {'lal_info': lal_info, 'lal_last': lal_last, 'lal_next': lal_next})
+
+
+#MEMPHIS GRIZZLIES
+def mem(request):
+    import requests
+    import json 
+
+    # GRIZZLIES General Info 134877
+    memreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Memphis_Grizzlies")
+    mem_info = json.loads(memreq.content)
+
+    # GRIZZLIES last game info 134877
+    memlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134877")
+    mem_last = json.loads(memlast.content)
+
+    # GRIZZLIES next game info 134877
+    memnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134877")
+    mem_next = json.loads(memnext.content)
+
+    return render(request, "teams/western/memphis.html", {'mem_info': mem_info, 'mem_last': mem_last, 'mem_next': mem_next})
+
+
+#MINNESOTA TIMBERWOLVES
+def min(request):
+    import requests
+    import json 
+
+    # T-WOLVES General Info 134886
+    minreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Memphis_Grizzlies")
+    min_info = json.loads(minreq.content)
+
+    # T-WOLVES Last Game Info
+    minlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134886")
+    min_last = json.loads(minlast.content)
+
+    # T-WOLVES Next Game Info
+    minnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134886")
+    min_next = json.loads(minnext.content)
+
+    return render(request, "teams/western/minnesota.html", {'min_info': min_info, 'min_last': min_last, 'min_next': min_next})
+
+
+#NEW ORLEANS PELICANS
+def nola(request):
+    import requests
+    import json 
+
+    # PELICANS General Info 134878
+    nolareq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=New%20Orleans%20Pelicans")
+    nola_info = json.loads(nolareq.content)
+
+    # PELICANS Last Game 134878
+    nolalast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134878")
+    nola_last = json.loads(nolalast.content)
+
+    # PELICANS Next Game 134878
+    nolanext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134878")
+    nola_next = json.loads(nolanext.content)
+
+    return render(request, "teams/western/neworleans.html", {'nola_info': nola_info, 'nola_last': nola_last, 'nola_next': nola_next})
+
+
 

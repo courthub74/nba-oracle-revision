@@ -619,4 +619,24 @@ def pho(request):
     return render(request, "teams/western/phoenix.html", {'pho_info': pho_info, 'pho_last': pho_last, 'pho_next': pho_next})
 
 
+#UTAH JAZZ
+def uta(request):
+    import requests
+    import json 
+
+    # JAZZ General Info 134889
+    utareq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Utah_jazz")
+    uta_info = json.loads(utareq.content)
+
+    # JAZZ Last Game 134889
+    utalast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134889")
+    uta_last = json.loads(utalast.content)
+
+    # JAZZ Next Game 134889
+    utanext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134889")
+    uta_next = json.loads(utanext.content)
+
+    return render(request, "teams/western/utah.html", {'uta_info': uta_info, 'uta_last': uta_last, 'uta_next': uta_next})
+
+
 

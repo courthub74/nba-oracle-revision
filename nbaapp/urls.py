@@ -30,4 +30,5 @@ urlpatterns = [
     path('memphisgrizzlies/', views.mem, name='mem'),
     path('minnesotatwolves/', views.min, name='min'),
     path('neworleanspelicans/', views.nola, name='nola'),
+    path('oklahomacitythunder/', views.okc, name='okc'),
 ]

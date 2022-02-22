@@ -519,4 +519,24 @@ def nola(request):
     return render(request, "teams/western/neworleans.html", {'nola_info': nola_info, 'nola_last': nola_last, 'nola_next': nola_next})
 
 
+#OKLAHOMA CITY THUNDER
+def okc(request):
+    import requests
+    import json 
+
+    # PELICANS General Info 134878
+    okcreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Oklahoma_City_Thunder")
+    okc_info = json.loads(okcreq.content)
+
+    # PELICANS Last Game 134878
+    okclast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134887")
+    okc_last = json.loads(okclast.content)
+
+    # PELICANS Next Game 134878
+    okcnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134887")
+    okc_next = json.loads(okcnext.content)
+
+    return render(request, "teams/western/okcthunder.html", {'okc_info': okc_info, 'okc_last': okc_last, 'okc_next': okc_next})
+
+
 

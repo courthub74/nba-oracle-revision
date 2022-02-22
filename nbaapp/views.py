@@ -539,4 +539,44 @@ def okc(request):
     return render(request, "teams/western/okcthunder.html", {'okc_info': okc_info, 'okc_last': okc_last, 'okc_next': okc_next})
 
 
+#PORTLAND TRAILBLAZERS
+def por(request):
+    import requests
+    import json 
+
+    # PELICANS General Info 134878
+    porreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Portland_Trail_Blazers")
+    por_info = json.loads(porreq.content)
+
+    # PELICANS Last Game 134878
+    porlast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134888")
+    por_last = json.loads(porlast.content)
+
+    # PELICANS Next Game 134878
+    pornext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134888")
+    por_next = json.loads(pornext.content)
+
+    return render(request, "teams/western/portland.html", {'por_info': por_info, 'por_last': por_last, 'por_next': por_next})
+
+
+#SAN ANTONIO SPURS
+def sas(request):
+    import requests
+    import json 
+
+    # SPURS General Info 134879
+    sasreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=San_Antonio_Spurs")
+    sas_info = json.loads(sasreq.content)
+
+    # SPURS Last Game 134879
+    saslast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134879")
+    sas_last = json.loads(saslast.content)
+
+    # SPURS Next Game 134879
+    sasnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134879")
+    sas_next = json.loads(sasnext.content)
+
+    return render(request, "teams/western/sanantonio.html", {'sas_info': sas_info, 'sas_last': sas_last, 'sas_next': sas_next})
+
+
 

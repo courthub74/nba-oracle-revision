@@ -33,4 +33,6 @@ urlpatterns = [
     path('oklahomacitythunder/', views.okc, name='okc'),
     path('portlandtrailblazers/', views.por, name='por'),
     path('sanantoniospurs/', views.sas, name='sas'),
+    path('sacramentokings/', views.sac, name='sac'),
+    path('phoenixsuns/', views.pho, name='pho'),
 ]

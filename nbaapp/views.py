@@ -579,4 +579,44 @@ def sas(request):
     return render(request, "teams/western/sanantonio.html", {'sas_info': sas_info, 'sas_last': sas_last, 'sas_next': sas_next})
 
 
+#SACRAMENTO KINGS
+def sac(request):
+    import requests
+    import json 
+
+    # KINGS General Info 134869
+    sacreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Sacramento_Kings")
+    sac_info = json.loads(sacreq.content)
+
+    # KINGS Last Game 134869
+    saclast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134869")
+    sac_last = json.loads(saclast.content)
+
+    # KINGS Next Game 134869
+    sacnext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134869")
+    sac_next = json.loads(sacnext.content)
+
+    return render(request, "teams/western/sacramento.html", {'sac_info': sac_info, 'sac_last': sac_last, 'sac_next': sac_next})
+
+
+#PHOENIX SUNS
+def pho(request):
+    import requests
+    import json 
+
+    # SUNS General Info 134868
+    phoreq = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/searchteams.php?t=Phoenix_Suns")
+    pho_info = json.loads(phoreq.content)
+
+    # KINGS Last Game 134869
+    pholast = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventslast.php?id=134868")
+    pho_last = json.loads(pholast.content)
+
+    # KINGS Next Game 134869
+    phonext = requests.get("https://www.thesportsdb.com/api/v1/json/4013017/eventsnext.php?id=134868")
+    pho_next = json.loads(phonext.content)
+
+    return render(request, "teams/western/phoenix.html", {'pho_info': pho_info, 'pho_last': pho_last, 'pho_next': pho_next})
+
+
 

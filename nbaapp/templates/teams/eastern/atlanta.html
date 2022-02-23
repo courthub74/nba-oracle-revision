@@ -9,80 +9,100 @@
     {% load static %}
     <center><img src="{% static 'images/eastern/hawks.png' %}" alt="hawks" width="400" height="250"></center>
 
-    <br>
+    <!--LINK TO CSS-->
+    <!-- <link rel="stylesheet" href="{% static 'css/style.css' %}"> -->
 
-    <!-- Demo Card for Design -->
-    <!-- <div class="center">
-        <h5 class="card-header prim">Card title</h5>
-        <div class="card-header prim">
-          This is a demo card 
-        </div>
-      </div> -->
+            <!-- CSS -->
+            <style>
+                .prim{
+                    background-color: rgb(234, 236, 238);
+                    opacity: 2;
+                }
+                .white {
+                    color: rgb(218, 224, 230);
+                    border-style: solid;
+                    border-width: 1px;
+                    border-radius: 10px;
+                    border-color: white;
+                }
+            </style>
 
-      <br>
+            <br>
 
-    <!-- Team Name -->
-    <div class="center">
-        {% for team in atl_info.teams%}
-        <h4 class="card-header"><b>Team Name:</b></h4>
-        <h5 class="card-header card-text">{{team.strTeam}}</h5>
-        {% endfor %}
-    </div>
-
-    <br>
-
-    <!-- Year Formed -->
-    <div class="center">
-        <!-- <div class="card border-dark" style="max-width: 70rem;"> -->
-            {% for year in atl_info.teams %}
-                <h4 class="card-header"><b>Year Formed:</b></h4>
-                <h5 class="card-header card-text">{{year.intFormedYear}}</h5>
-            {% endfor %}
-        <!-- </div> -->
-    </div>
-
-    <br>
-
-    <!--Team Stadium-->
-    <div class="center">
-        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            {% for team in atl_info.teams %}
-            <h4 class="card-header"><b>Team Stadium:</b></h4>
-            <h5 class="card-header card-text">{{ team.strStadium }}</h5>
-            {% endfor %}
-        <!-- </div> -->
-    </div>
-
-    <br>
-
-    <!--Last 5 Games Played-->
-    <div class="center">
-        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            <h4 class="card-header text-dark"><b>Last 5 Games Played:</b></h4>
-                <div class="card-body text-dark">
-                    {% for score in atl_last.results %}
-                    <h5 class="card-header">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores">
-                        <b>@{{score.strHomeTeam}} {{score.intHomeScore}} <br>
-                        {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
-                    {% endfor %}
-                    
-                    
+            <!-- Demo Card for Design -->
+            <!-- <div class="center white">
+                <h5 class="card-header">Card title</h5>
+                <div class="card-header">
+                This is a demo card 
                 </div>
+            </div> -->
+
+            <br>
+
+            <!-- Team Name -->
+            <div class="center">
+                {% for team in atl_info.teams%}
+                <h4 class="card-body white"><b>Team Name:</b></h4>
+                <h5 class="card-body white">{{team.strTeam}}</h5>
+                {% endfor %}
+            </div>
+
+            <br>
+
+            <!-- Year Formed -->
+            <div class="center">
+                <!-- <div class="card border-dark" style="max-width: 70rem;"> -->
+                    {% for year in atl_info.teams %}
+                        <h4 class="card-body white"><b>Year Formed:</b></h4>
+                        <h5 class="card-body white">{{year.intFormedYear}}</h5>
+                    {% endfor %}
+                <!-- </div> -->
+            </div>
+
+            <br>
+
+            <!--Team Stadium-->
             <div class="center">
                 <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-                    <h4 class="card-header text-dark"><b>Next Game(s):</b></h4>
-                        <div class="card-body text-dark">
+                    {% for team in atl_info.teams %}
+                    <h4 class="card-body white"><b>Team Stadium:</b></h4>
+                    <h5 class="card-body white">{{ team.strStadium }}</h5>
+                    {% endfor %}
+                <!-- </div> -->
+            </div>
+
+            <br>
+
+            <!--Last 5 Games Played-->
+            <div class="center">
+                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+                    <h4 class="card-body white"><b>Last 5 Games Played:</b></h4>
+                        <div class="card-body">
+                            {% for score in atl_last.results %}
+                            <p class="card-text scores white">
+                                {{score.dateEventLocal}}<br>
+                                <b>@{{score.strHomeTeam}} {{score.intHomeScore}} <br>
+                                {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                            {% endfor %}
+                        </div>         
+            </div>
+            
+            <br>
+
+            <!--Next 5 Games played-->
+            <div class="center">
+                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+                    <h4 class="card-body white"><b>Next 5 Games:</b></h4>
+                        <div class="card-body white">
                             {% for score in atl_next.events %}
-                                <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
+                                <p class="card-text scores"><b>{{score.strEventAlternate}}</b></p>
                             {% endfor %}
                         </div>
                 <!-- </div> -->
             </div>
-            </p>
-        </div>
-    </div>
 
+            <br>
+    
 </div>
 
 {% endblock %}

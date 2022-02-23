@@ -9,10 +9,13 @@
     {% load static %}
     <center><img src="{% static 'images/eastern/celtics.png' %}" alt="celtics" width="310" height="270"></center>
 
+    <!--LINK TO CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
     <br>
 
     <!-- Team Name -->
-    <div class="center">
+    <div class="center white">
         {% for team in bos_info.teams%}
         <div class="card-header text-dark">Team Name:</div>
         <p class="card-text big"><h4>{{team.strTeam}}</h4></p>

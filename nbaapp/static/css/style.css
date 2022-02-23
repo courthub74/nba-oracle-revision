@@ -38,7 +38,40 @@ body {
     color: black;
 }
 
+/* for the dropdowns */
+.ddowns{
+  background-color: rgb(49, 144, 228);
+  color: rgb(218, 224, 230);
+  border-width: 1px;
+  border-color: white;
+  font-size: large;
+}
+.ddlist{
+  background-color: rgb(49, 144, 228);
+  color: rgb(218, 224, 230);
+  border-width: 1px;
+  border-color: white;
+}
+
+/* for the Teams */
+
 .prim{
-  background-color: rgb(12, 63, 233);
-  opacity: .5;
+  background-color: rgb(20, 97, 165);
+  opacity: 20;
+  border-radius: 10px;
+}
+.white {
+  color: rgb(218, 224, 230);
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 10px;
+  border-color: white;
+}
+.text {
+  font-weight: 300;
+  font-size: x-large;
+}
+.textdown {
+  font-weight: 300;
+  font-size: large;
 }

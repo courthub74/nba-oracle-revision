@@ -10,63 +10,66 @@
     <center><img src="{% static 'images/western/nuggets.png' %}" alt="nuggets" width="255" height="250"></center>
 
     <br>
+     
+    <!--LINK TO CSS-->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-     <!-- Team Name -->
-     <!--This one needs to be entered manually as for the json in api has two different years-->
-     <!--One of the years needs to be cleaned out, I have contacted the admin-->
-     <div class="center">
-        
-        <div class="card-header text-dark">Team Name:</div>
-        <p class="card-text big"><h4>Denver Nuggets</h4></p>
-        
+
+    <!-- Team Name -->
+    <!--This one needs to be entered manually as for the json in api has two different years-->
+    <!--One of the years needs to be cleaned out, I have contacted the admin-->
+    <div class="center">
+        <h3 class="card-body prim white"><b>Team Name:</b></h3>
+        <h5 class="card-body prim white text">Denver Nuggets</h5>
     </div>
+
+    <br>
 
     <!-- Year Formed -->
     <div class="center">
-        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            
-            <div class="card-header text-dark">Year Formed:</div>
-            <p class="card-text big"><h4>1967</h4></p>
-            
-        <!-- </div> -->
+        <h4 class="card-body prim white"><b>Year Formed:</b></h4>
+        <h5 class="card-body prim white text">1967</h5>
     </div>
+
+    <br>
 
     <!--Team Stadium-->
     <div class="center">
+        <h4 class="card-body prim white"><b>Team Stadium:</b></h4>
+        <h5 class="card-body prim white text">Pepsi Center</h5>
+    </div>
+
+    <br>
+
+    <!--Last 5 Games Played-->
+    <div class="center">
         <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            
-            <div class="card-header text-dark">Team Stadium:</div>
-            <p class="card-text big"><h4>Pepsi Center</h4></p>
-            
+            <h4 class="card-body prim white"><b>Last 5 Games Played:</b></h4>
+                <div class="card-body">
+                    {% for score in den_last.results %}
+                    <p class="card-text scores prim white textdown">
+                        {{score.dateEventLocal}}<br>
+                        <b>@{{score.strHomeTeam}} {{score.intHomeScore}} <br>
+                        {{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
+                    {% endfor %}
+                </div>         
+    </div>
+    
+    <br>
+
+    <!--Next 5 Games played-->
+    <div class="center">
+        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
+            <h4 class="card-body prim white"><b>Next 5 Games:</b></h4>
+                <div class="card-body prim white">
+                    {% for score in den_next.events %}
+                        <p class="card-text scores textdown"><b>{{score.strEventAlternate}}</b></p>
+                    {% endfor %}
+                </div>
         <!-- </div> -->
     </div>
 
-     <!--Last 5 Games Played-->
-     <div class="center">
-        <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-            <div class="card-header text-dark">Last 5 Games Played:</div>
-                <div class="card-body text-dark">
-                    {% for score in den_last.results %}
-                    <h5 class="card-header">{{score.dateEventLocal}}</h5>
-                    <p class="card-text scores"><b>@{{score.strHomeTeam}} {{score.intHomeScore}}</b></p>
-                    <p class="card-text scores"><b>{{score.strAwayTeam}} {{score.intAwayScore}}</b></p>
-                    {% endfor %}
-                    
-                    
-                </div>
-            <div class="center">
-                <!-- <div class="card border-primary" style="max-width: 70rem;"> -->
-                    <div class="card-header text-dark">Next Game(s):</div>
-                        <div class="card-body text-dark">
-                            {% for score in den_next.events %}
-                                <p class="card-title scores"><b>{{score.strEventAlternate}}</b></p>
-                            {% endfor %}
-                        </div>
-                <!-- </div> -->
-            </div>
-            </p>
-        </div>
-    </div>
+    <br>
 
 </div>
 

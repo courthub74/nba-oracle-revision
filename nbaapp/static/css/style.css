@@ -46,7 +46,7 @@ body {
   border-color: white;
   font-size: large;
 }
-.ddlist{
+.ddlist .intro{
   background-color: rgb(49, 144, 228);
   color: rgb(218, 224, 230);
   border-width: 1px;
